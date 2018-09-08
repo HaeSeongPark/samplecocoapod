@@ -11,6 +11,7 @@
 		972AB08F21438DBA0062FAEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972AB08E21438DBA0062FAEF /* ViewController.swift */; };
 		972AB09121438DBA0062FAEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 972AB09021438DBA0062FAEF /* Assets.xcassets */; };
 		972AB09421438DBA0062FAEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 972AB09221438DBA0062FAEF /* Main.storyboard */; };
+		972AB09D214390FA0062FAEF /* Source in Resources */ = {isa = PBXBuildFile; fileRef = 972AB09C214390FA0062FAEF /* Source */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		972AB09321438DBA0062FAEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		972AB09521438DBA0062FAEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		972AB09621438DBA0062FAEF /* samplecocoapod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = samplecocoapod.entitlements; sourceTree = "<group>"; };
+		972AB09C214390FA0062FAEF /* Source */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Source; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +39,7 @@
 		972AB08021438DBA0062FAEF = {
 			isa = PBXGroup;
 			children = (
+				972AB09C214390FA0062FAEF /* Source */,
 				972AB08B21438DBA0062FAEF /* samplecocoapod */,
 				972AB08A21438DBA0062FAEF /* Products */,
 			);
@@ -121,6 +124,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				972AB09D214390FA0062FAEF /* Source in Resources */,
 				972AB09121438DBA0062FAEF /* Assets.xcassets in Resources */,
 				972AB09421438DBA0062FAEF /* Main.storyboard in Resources */,
 			);
