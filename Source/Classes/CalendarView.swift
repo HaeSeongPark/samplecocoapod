@@ -59,14 +59,33 @@ extension CalendarView: NSCollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        
+        var item: NSCollectionViewItem
+        
         switch Section(rawValue: indexPath.section)! {
         case .Month:
-            return collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HNMonthItem"), for: indexPath)
+            item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HNMonthItem"), for: indexPath)
+            
+            if let item = item as? HNMonthItem {
+                item.configure(month: NSDate())
+            }
+            
         case .Week:
-            return collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HNWeekItem"), for: indexPath)
+            item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HNWeekItem"), for: indexPath)
+            
+            if let item = item as? HNWeekItem {
+                item.configure(week: HNCalendar.Week[indexPath.item])
+            }
+            
         case .Date:
-            return collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HNDateItem"), for: indexPath)
+            item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HNDateItem"), for: indexPath)
+            
+            if let item = item as? HNDateItem {
+                item.configure(day:1)
+            }
         }
+        
+        return item
     }
 }
 

@@ -28,6 +28,7 @@
         </customView>
         <customObject id="ex8-EC-ZNs" customClass="HNDateItem" customModule="samplecocoapod" customModuleProvider="target">
             <connections>
+                <outlet property="dateField" destination="aTi-fj-LRu" id="S0e-dQ-ZFj"/>
                 <outlet property="view" destination="c22-O7-iKe" id="xWx-f6-iY5"/>
             </connections>
         </customObject>

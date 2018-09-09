@@ -9,10 +9,15 @@
 import Cocoa
 
 class HNWeekItem: NSCollectionViewItem {
-
+    @IBOutlet weak var weekField: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+    }
+    
+    func configure(week:String) {
+        weekField.stringValue = week
     }
     
 }
