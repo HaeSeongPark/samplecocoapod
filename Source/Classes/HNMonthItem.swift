@@ -20,5 +20,6 @@ class HNMonthItem: NSCollectionViewItem {
 //        format.dateFormat = "MM YYYY"
 //        monthField.stringValue = format.string(from: month as Date)
         monthField.stringValue = "\(month.month) \(month.year)"
+        monthField.textColor = CalendarView.globalPreference.calendar.textColor
     }
 }

@@ -16,12 +16,27 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        calendarView.counts = generageCounts()
+        //step 1 - override style
+        var preferences = CalendarView.Preference()
+        preferences.calendar.backgroundColor = NSColor.gray
+        preferences.calendar.textColor = NSColor.white
         
+        preferences.date.circleBackgroundColor = NSColor.yellow
+        preferences.date.dotColor = NSColor.green
+        
+        CalendarView.globalPreference = preferences
+        
+        
+        //step 2 add calendar to view hierachy
         addChildViewController(calendarView)
         calendarView.view.frame = containerView.frame
         view.addSubview(calendarView.view)
         
+        // step 3 - properties
+        // showing dots
+        calendarView.counts = generageCounts()
+        
+        // set selected date
         calendarView.selectedDate = Date()
     }
     

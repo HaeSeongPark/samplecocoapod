@@ -8,7 +8,7 @@
 
 import Cocoa
 
-@IBDesignable class HNDateItemView: NSView {
+class HNDateItemView: NSView {
     
     var circleLayer: CALayer!
     var dotLayer: CALayer!
@@ -24,6 +24,10 @@ import Cocoa
     }
     
     private func commonInit() {
+        let preferences = CalendarView.globalPreference
+        
+        
+        
         wantsLayer = true
         
         // make circle layer
@@ -31,7 +35,7 @@ import Cocoa
         let dimension = floor(min(bounds.width, bounds.height) - 2)
         circleLayer.frame = NSMakeRect(0, 0, dimension, dimension)
         circleLayer.cornerRadius = dimension / 2
-        circleLayer.backgroundColor = NSColor.red.cgColor
+        circleLayer.backgroundColor = preferences.date.circleBackgroundColor.cgColor
         circleLayer.masksToBounds = false
         circleLayer.isHidden = true
         layer?.addSublayer(circleLayer)
@@ -40,7 +44,7 @@ import Cocoa
         dotLayer = CALayer()
         dotLayer.frame = NSMakeRect(bounds.width / 2 - 2, 4, 4, 4)
         dotLayer.cornerRadius = 2
-        dotLayer.backgroundColor = NSColor.blue.cgColor
+        dotLayer.backgroundColor = preferences.date.dotColor.cgColor
         dotLayer.isHidden = true
         layer?.addSublayer(dotLayer)
     }

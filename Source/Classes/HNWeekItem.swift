@@ -18,6 +18,7 @@ class HNWeekItem: NSCollectionViewItem {
     
     func configure(week:String) {
         weekField.stringValue = week
+        weekField.textColor = CalendarView.globalPreference.calendar.textColor
     }
     
 }

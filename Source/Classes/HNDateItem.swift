@@ -52,6 +52,7 @@ class HNDateItem: NSCollectionViewItem {
     func configure(day: Int, inCurrentMonth: Bool) {
         dateField.stringValue = "\(day)"
         self.inCurrentMonth = inCurrentMonth
+        dateField.textColor = CalendarView.globalPreference.calendar.textColor
     }
     
 }

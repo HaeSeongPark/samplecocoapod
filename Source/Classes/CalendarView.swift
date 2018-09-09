@@ -11,17 +11,37 @@ import SwiftDate
 
 public class CalendarView: NSViewController {
     
+    public struct Preference {
+        
+        public struct Calendar {
+            public var backgroundColor = NSColor.clear
+            public var textColor = NSColor.black
+        }
+        
+        public struct Date {
+            public var circleBackgroundColor = NSColor.red
+            public var dotColor = NSColor.blue
+        }
+        
+        public var calendar = Calendar()
+        public var date = Date()
+        
+        public init() {}
+    }
+    
+    public static var globalPreference = Preference()
+    
     @IBOutlet weak var collectionView: NSCollectionView!
     
     // today
     let date = Date()
     
     // selected date
-    var selectedDate:Date = Date() {
+    public var selectedDate:Date = Date() {
         didSet { selectSelectedDateItem() }
     }
     
-    var counts: [Int]?
+    public var counts: [Int]?
     
     public init() {
         super.init(nibName: NSNib.Name(rawValue: "HNCalendarView"), bundle: Bundle(for: CalendarView.self))
@@ -34,6 +54,8 @@ public class CalendarView: NSViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        collectionView.backgroundColors = [CalendarView.globalPreference.calendar.backgroundColor]
     }
     
     public override func viewDidAppear() {
