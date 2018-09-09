@@ -10,6 +10,17 @@
 import Cocoa
 
 class HNDateItem: NSCollectionViewItem {
+    @IBOutlet weak var itemView: HNDateItemView!
+    
+    var count: Int = 0 {
+        didSet {
+            if count <= 0 {
+                itemView.dotLayer.isHidden = true
+            } else {
+                itemView.dotLayer.isHidden = false
+            }
+        }
+    }
     
     override var isSelected: Bool {
         didSet {
@@ -26,9 +37,11 @@ class HNDateItem: NSCollectionViewItem {
     }
     
     private func updateStyles() {
-        if let view = view as? HNDateItemView {
-            view.circleLayer.isHidden = !isSelected
-        }
+        itemView.circleLayer.isHidden = !isSelected
+        
+//        if let view = view as? HNDateItemView {
+//            view.circleLayer.isHidden = !isSelected
+//        }
     }
     
     override func viewDidLoad() {

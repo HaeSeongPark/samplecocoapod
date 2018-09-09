@@ -21,6 +21,8 @@ public class CalendarView: NSViewController {
         didSet { selectSelectedDateItem() }
     }
     
+    var counts: [Int]?
+    
     public init() {
         super.init(nibName: NSNib.Name(rawValue: "HNCalendarView"), bundle: Bundle(for: CalendarView.self))
     }
@@ -110,6 +112,13 @@ extension CalendarView: NSCollectionViewDataSource {
             
             if let item = item as? HNDateItem {
                 item.configure(day:day, inCurrentMonth: inMonth)
+                
+                // count ??
+                if let counts = counts, inMonth {
+                    item.count = counts[ day - 1 ]
+                } else {
+                    item.count = 0
+                }
             }
         }
         return item

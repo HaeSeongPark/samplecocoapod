@@ -16,11 +16,21 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        calendarView.counts = generageCounts()
+        
         addChildViewController(calendarView)
         calendarView.view.frame = containerView.frame
         view.addSubview(calendarView.view)
         
         calendarView.selectedDate = Date()
+    }
+    
+    private func generageCounts() -> [Int] {
+        var counts = [Int]()
+        for i in 0..<Date().monthDays {
+            counts.append( i % 2 )
+        }
+        return counts
     }
 }
 
