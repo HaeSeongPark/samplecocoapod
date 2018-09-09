@@ -88,10 +88,9 @@ extension CalendarView: NSCollectionViewDataSource {
             item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HNDateItem"), for: indexPath)
             
             if let item = item as? HNDateItem {
-                item.configure(day:day)
+                item.configure(day:day, inCurrentMonth: inMonth)
             }
         }
-        
         return item
     }
     
@@ -132,9 +131,9 @@ extension CalendarView: NSCollectionViewDelegateFlowLayout {
         case .Month:
             return NSMakeSize(width, 50)
         case .Week:
-            return NSMakeSize(width / 9, 30)
+            return NSMakeSize(width / 9 - 5, 30)
         case .Date:
-            return NSMakeSize(width / 9 ,40)
+            return NSMakeSize(width / 9 - 5,40)
         }
     }
 }
