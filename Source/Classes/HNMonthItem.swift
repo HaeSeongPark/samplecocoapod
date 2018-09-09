@@ -16,6 +16,8 @@ class HNMonthItem: NSCollectionViewItem {
     }
     
     func configure(month: NSDate) {
-        monthField.stringValue = "\(month)"
+        let format = DateFormatter()
+        format.dateFormat = "MM YYYY"
+        monthField.stringValue = format.string(from: month as Date)
     }
 }

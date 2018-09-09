@@ -9,7 +9,10 @@
 import Cocoa
 
 public class CalendarView: NSViewController {
+    
     @IBOutlet weak var collectionView: NSCollectionView!
+    
+    let date = NSDate()
     
     public init() {
         super.init(nibName: NSNib.Name(rawValue: "HNCalendarView"), bundle: Bundle(for: CalendarView.self))
@@ -67,7 +70,7 @@ extension CalendarView: NSCollectionViewDataSource {
             item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HNMonthItem"), for: indexPath)
             
             if let item = item as? HNMonthItem {
-                item.configure(month: NSDate())
+                item.configure(month: date)
             }
             
         case .Week:
