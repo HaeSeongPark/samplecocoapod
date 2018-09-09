@@ -23,7 +23,7 @@
                         <rect key="frame" x="1" y="1" width="278" height="270"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView id="sYR-cl-Kw1">
+                            <collectionView selectable="YES" id="sYR-cl-Kw1">
                                 <rect key="frame" x="0.0" y="0.0" width="278" height="158"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="Bue-P3-Bgi">

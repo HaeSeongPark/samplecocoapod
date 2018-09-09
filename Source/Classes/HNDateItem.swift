@@ -10,11 +10,24 @@
 import Cocoa
 
 class HNDateItem: NSCollectionViewItem {
+    
+    override var isSelected: Bool {
+        didSet {
+            updateStyles()
+        }
+    }
+    
     @IBOutlet weak var dateField: NSTextField!
     
     var inCurrentMonth: Bool = true {
         didSet {
             dateField.alphaValue = inCurrentMonth ? 1.0 : 0.3
+        }
+    }
+    
+    private func updateStyles() {
+        if let view = view as? HNDateItemView {
+            view.circleLayer.isHidden = !isSelected
         }
     }
     

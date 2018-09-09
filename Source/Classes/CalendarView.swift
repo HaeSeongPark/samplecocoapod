@@ -13,7 +13,13 @@ public class CalendarView: NSViewController {
     
     @IBOutlet weak var collectionView: NSCollectionView!
     
+    // today
     let date = Date()
+    
+    // selected date
+    var selectedDate:Date = Date() {
+        didSet { selectSelectedDateItem() }
+    }
     
     public init() {
         super.init(nibName: NSNib.Name(rawValue: "HNCalendarView"), bundle: Bundle(for: CalendarView.self))
@@ -30,6 +36,21 @@ public class CalendarView: NSViewController {
     
     public override func viewDidAppear() {
         super.viewDidAppear()
+        selectSelectedDateItem()
+    }
+    
+    private func selectSelectedDateItem() {
+        if let selectedIndexPath = indexPathForDate(selecteDate: selectedDate) {
+            collectionView.selectItems(at: [selectedIndexPath], scrollPosition: [])
+        }
+    }
+    
+    private func indexPathForDate(selecteDate: Date) -> IndexPath? {
+        if date.month == selectedDate.month {
+            let item = date.startOf(component: .month).weekday + selectedDate.day - 2
+            return IndexPath(item: item, section: Section.Date.rawValue)
+        }
+        return nil
     }
     
 //    var label: NSTextField!

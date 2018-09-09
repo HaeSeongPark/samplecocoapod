@@ -19,6 +19,8 @@ class ViewController: NSViewController {
         addChildViewController(calendarView)
         calendarView.view.frame = containerView.frame
         view.addSubview(calendarView.view)
+        
+        calendarView.selectedDate = Date()
     }
 }
 
