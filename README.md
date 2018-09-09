@@ -1,7 +1,7 @@
 # samplecocoapod
 CalendarView framework written in siwft for mac os
 
-#usage
+# usage
 
 ## Initialize the Calendar View
 
