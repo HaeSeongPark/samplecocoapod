@@ -7,12 +7,13 @@
 //
 
 import Cocoa
+import SwiftDate
 
 public class CalendarView: NSViewController {
     
     @IBOutlet weak var collectionView: NSCollectionView!
     
-    let date = NSDate()
+    let date = Date()
     
     public init() {
         super.init(nibName: NSNib.Name(rawValue: "HNCalendarView"), bundle: Bundle(for: CalendarView.self))
@@ -81,14 +82,40 @@ extension CalendarView: NSCollectionViewDataSource {
             }
             
         case .Date:
+            
+            let (day, inMonth) = dayInMonthItem(item: indexPath.item )
+          
             item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HNDateItem"), for: indexPath)
             
             if let item = item as? HNDateItem {
-                item.configure(day:1)
+                item.configure(day:day)
             }
         }
         
         return item
+    }
+    
+    //MARK: - Private
+    private func dayInMonthItem(item: Int) -> (Int,Bool) {
+        var day: Int
+        var isMonth = false
+        
+        if item < date.startOf(component: .month).weekday - 1 {
+//            day = date(of: item) + (1.month.ago(from: date)?.monthDays)!
+            day = date(of:item) + (1.months.from(date: date)?.monthDays)!
+        } else if item - date.startOf(component: .month).weekday < date.monthDays - 1 {
+            day = date(of: item)
+            isMonth = true
+        } else {
+            day = date(of: item) - date.monthDays
+        }
+        
+        
+        return (day, isMonth)
+    }
+    
+    private func date(of item: Int) -> Int {
+        return item - date.startOf(component: .month).weekday + 2
     }
 }
 
@@ -105,9 +132,9 @@ extension CalendarView: NSCollectionViewDelegateFlowLayout {
         case .Month:
             return NSMakeSize(width, 50)
         case .Week:
-            return NSMakeSize(width / 10, 30)
+            return NSMakeSize(width / 9, 30)
         case .Date:
-            return NSMakeSize(width / 10 ,40)
+            return NSMakeSize(width / 9 ,40)
         }
     }
 }
