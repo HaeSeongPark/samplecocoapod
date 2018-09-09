@@ -10,18 +10,15 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    let calendarView = CalendarView()
+    @IBOutlet weak var containerView: NSView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        addChildViewController(calendarView)
+        calendarView.view.frame = containerView.frame
+        view.addSubview(calendarView.view)
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
-
 }
 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CalendarView" customModule="samplecocoapod" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="sYR-cl-Kw1" id="utl-gh-eFo"/>
+                <outlet property="view" destination="c22-O7-iKe" id="ssg-Zx-wU7"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="280" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziZ-9a-gmW">
+                    <rect key="frame" x="0.0" y="0.0" width="280" height="272"/>
+                    <clipView key="contentView" drawsBackground="NO" id="nJt-gS-z0f">
+                        <rect key="frame" x="1" y="1" width="278" height="270"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView id="sYR-cl-Kw1">
+                                <rect key="frame" x="0.0" y="0.0" width="278" height="158"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="Bue-P3-Bgi">
+                                    <size key="itemSize" width="280" height="50"/>
+                                </collectionViewFlowLayout>
+                                <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="-2" id="ljU-WV-uje"/>
+                                    <outlet property="delegate" destination="-2" id="fey-03-s72"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="HJp-Jr-VRh">
+                        <rect key="frame" x="1" y="144" width="233" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="hd2-9q-xjc">
+                        <rect key="frame" x="234" y="1" width="15" height="143"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="ziZ-9a-gmW" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="YMk-ln-dnl"/>
+                <constraint firstAttribute="trailing" secondItem="ziZ-9a-gmW" secondAttribute="trailing" id="f11-VQ-Tkx"/>
+                <constraint firstItem="ziZ-9a-gmW" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="hJa-du-uzH"/>
+                <constraint firstAttribute="bottom" secondItem="ziZ-9a-gmW" secondAttribute="bottom" id="qxT-ID-BrV"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>
